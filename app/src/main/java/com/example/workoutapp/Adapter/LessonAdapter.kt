@@ -1,6 +1,7 @@
 package com.example.workoutapp.Adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -18,9 +19,18 @@ class LessonAdapter (private val  listofLesson: List<Lesson>):RecyclerView.Adapt
             binding.durationtxt.text=lesson.duration
 
 
-            Glide.with(binding.root.context)
-                .load(lesson.picPath)
-                .into(binding.picpath)
+            binding.picpath.setImageDrawable(ContextCompat.getDrawable(/* context = */ binding.root.context,/* id = */
+                lesson.picPath.toInt()))
+
+
+
+            binding.root.setOnClickListener(){
+                val context = binding.root.context
+                val youtubeintent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=${lesson.Link}"))
+                context.startActivity(youtubeintent)
+            }
+
+
         }
 
 

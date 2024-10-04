@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workoutapp.Adapter.WorkoutAdapter
 import com.example.workoutapp.Domain.Lesson
@@ -28,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
-
+        val intent = Intent(this,WorkoutActivity::class.java)
 
 
         binding.view1.layoutManager =
@@ -52,38 +50,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-    private fun getLessonForWorkout3(): List<Lesson> {
-        val list = mutableListOf<Lesson>()
-
-        list.add(Lesson("Lesson 1","23:00","v7AYKMP6rOE","pic_3_1"))
-        list.add(Lesson("Lesson 2","27:00","Eml2xnoLpYE","pic_3_2"))
-        list.add(Lesson("Lesson 3","25:00","v7SN-d4qXx0","pic_3_3"))
-        list.add(Lesson("Lesson 4","21:00","LqXZ628YNj4","pic_3_4"))
-        return list
-
-    }
-
-    private fun getLessonForWorkout2(): List<Lesson> {
-        val list = mutableListOf<Lesson>()
-
-        list.add(Lesson("Lesson 1","20:23","v7AYKMP6rOE","pic_2_1"))
-        list.add(Lesson("Lesson 2","18:27","47ExgzO7Flu","pic_2_2"))
-        list.add(Lesson("Lesson 3","32:25","OmLx8tmaQ-4","pic_2_3"))
-        list.add(Lesson("Lesson 4","07:52","w86EalEoFRY","pic_2_4"))
-        return list
-
-    }
-
-    private fun getLessonForWorlout1(): List<Lesson> {
-        val list = mutableListOf<Lesson>()
-
-        list.add(Lesson("Lesson 1","20:23","v7AYKMP6rOE","pic_1_1"))
-        list.add(Lesson("Lesson 2","18:27","47ExgzO7Flu","pic_1_2"))
-        list.add(Lesson("Lesson 3","32:25","OmLx8tmaQ-4","pic_1_3"))
-
-        return list
-
-    }
 
 
 

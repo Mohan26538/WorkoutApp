@@ -44,7 +44,8 @@ class WorkoutActivity : AppCompatActivity() {
 
             binding.titletxt.text=workout.title
             binding.descriptiontxt.text= workout.description
-            binding.pic.setImageDrawable(ContextCompat.getDrawable(binding.root.context,workout.picPath))
+
+            binding.pic.setImageDrawable(ContextCompat.getDrawable(binding.root.context, workout.picPath))
 
 
         }
@@ -55,17 +56,11 @@ class WorkoutActivity : AppCompatActivity() {
 
         }
 
-        val workouttitle = intent.getStringExtra("workout_title") ?: "default"
-
-        lessonlist = when(workouttitle){
-            "Workout 1" -> getLessonForWorlout1()
-            "Workout 2" -> getLessonForWorkout2()
-            "Workout 3" -> getLessonForWorkout3()
-            else -> emptyList()
-        }
 
 
-        lessonAdapter = LessonAdapter(lessonlist)
+        val lesson:List<Lesson> = getLessonForWorkout3()
+
+        lessonAdapter = LessonAdapter(lesson)
         binding.view3.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.view3.adapter = this.lessonAdapter
 
@@ -85,10 +80,10 @@ class WorkoutActivity : AppCompatActivity() {
     private fun getLessonForWorkout3(): List<Lesson> {
         val list = mutableListOf<Lesson>()
 
-        list.add(Lesson("Lesson 1","23:00","v7AYKMP6rOE","pic_3_1"))
-        list.add(Lesson("Lesson 2","27:00","Eml2xnoLpYE","pic_3_2"))
-        list.add(Lesson("Lesson 3","25:00","v7SN-d4qXx0","pic_3_3"))
-        list.add(Lesson("Lesson 4","21:00","LqXZ628YNj4","pic_3_4"))
+        list.add(Lesson("Lesson 1","23:00","v7AYKMP6rOE",R.drawable.pic_3_1.toString()))
+        list.add(Lesson("Lesson 2","27:00","Eml2xnoLpYE",R.drawable.pic_3_2.toString()))
+        list.add(Lesson("Lesson 3","25:00","v7SN-d4qXx0",R.drawable.pic_3_3.toString()))
+        list.add(Lesson("Lesson 4","21:00","LqXZ628YNj4",R.drawable.pic_3_4.toString()))
         return list
 
     }
@@ -104,7 +99,7 @@ class WorkoutActivity : AppCompatActivity() {
 
     }
 
-    private fun getLessonForWorlout1(): List<Lesson> {
+    private fun getLessonForWorkout1(): List<Lesson> {
         val list = mutableListOf<Lesson>()
 
         list.add(Lesson("Lesson 1","20:23","v7AYKMP6rOE","pic_1_1"))

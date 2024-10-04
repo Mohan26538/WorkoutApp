@@ -3,15 +3,13 @@ package com.example.workoutapp.Adapter
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.workoutapp.Activity.WorkoutActivity
 import com.example.workoutapp.Domain.Workout
 import com.example.workoutapp.databinding.ViewholderWorkoutBinding
 
-class WorkoutAdapter (private val listofworkout : List<Workout>) : RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
+class WorkoutAdapter(private val listofworkout: List<Workout>) : RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
 
     inner class WorkoutViewHolder(private val binding: ViewholderWorkoutBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(workout:Workout){
@@ -22,12 +20,13 @@ class WorkoutAdapter (private val listofworkout : List<Workout>) : RecyclerView.
             binding.pic.setImageDrawable(ContextCompat.getDrawable(binding.root.context, workout.picPath))
 
 
+
+
             binding.root.setOnClickListener{
                 val context = binding.root.context
                 val intent= Intent(context,WorkoutActivity::class.java)
-
                 intent.putExtra("object",workout)
-                context.startActivity(intent)
+               context.startActivity(intent)
             }
 
 
