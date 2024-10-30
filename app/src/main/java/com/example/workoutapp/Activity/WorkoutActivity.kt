@@ -54,6 +54,12 @@ class WorkoutActivity : AppCompatActivity() {
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
 
+
+        }
+
+        binding.video.setOnClickListener{
+            val intent = Intent(this,UploadVideoActivity::class.java)
+            startActivity(intent)
         }
 
 
